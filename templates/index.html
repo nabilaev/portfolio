@@ -44,6 +44,44 @@
             font-family: 'Madimi One', sans-serif;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mengambil referensi elemen formulir
+            const form = document.getElementById('contact-form');
+    
+            // Menambahkan event listener untuk submit formulir
+            form.addEventListener('submit', function (event) {
+                // Menghentikan pengiriman formulir default
+                event.preventDefault();
+    
+                // Membuat objek FormData untuk mengambil data formulir
+                const formData = new FormData(this);
+    
+                // Mengirim data formulir menggunakan AJAX
+                fetch('/submit_form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Handle response dari server di sini, seperti menampilkan pesan sukses atau error
+                    console.log(data);
+                    alert('Form submitted successfully!');
+                })
+                .catch(error => {
+                    // Handle error dari fetch request di sini
+                    console.error('There was a problem with your fetch operation:', error);
+                    alert('Form submission failed. Please try again later.');
+                });
+            });
+        });
+    </script>
+    
 </head>
 
 <body id="hal-atas">
