@@ -19,29 +19,8 @@ app = Flask(__name__)
 
 # Route untuk halaman utama
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
-# Route untuk meng-handle form submission dari halaman kontak
-@app.route('/submit_form', methods=['POST'])
-def submit_form():
-    if request.method == 'POST':
-        # Mengambil data dari form
-        nama = request.form['nama']
-        email = request.form['email']
-        pesan = request.form['pesan']
-        
-        # Menyimpan data ke dalam collection "messages"
-        messages_collection = db['messages']
-        new_message = {
-            'nama': nama,
-            'email': email,
-            'pesan': pesan
-        }
-        db.portfolio.insert_one(new_message)
-        
-        # Menanggapi dengan pesan sukses
-        return 'Form submitted successfully!'
-
 if __name__ == '__main__':
-    app.run(debug=True)
+   app.run('0.0.0.0', port=5000, debug=True)

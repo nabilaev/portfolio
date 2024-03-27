@@ -1,0 +1,21 @@
+        .navbar-nav .nav-item .nav-link:hover {
+        border-bottom: 2px solid #fff;
+        }
+        .jumbotron {
+            padding-top: 6rem;
+            background-color: #8ddabae3;
+        }
+
+        .lead {
+            margin: 20px auto 0px auto;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        h2 {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        h4 {
+            font-family: 'Madimi One', sans-serif;
+        }
